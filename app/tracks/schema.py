@@ -3,8 +3,7 @@ from graphene_django import DjangoObjectType
 from graphql import GraphQLError
 from django.db.models import Q
 
-from .models import Track, Like
-from users.schema import UserType
+from .models import Track
 
 
 class TrackType(DjangoObjectType):
