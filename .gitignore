@@ -2,4 +2,5 @@
 
 # dependencies
 react-tracks-client/node_modules
+app/__pycache__
 
