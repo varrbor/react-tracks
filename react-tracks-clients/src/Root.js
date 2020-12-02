@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import { gql } from 'apollo-boost';
 
 const Root = () => (
-    <Query query={GET_TRACKS_QUERY}>
+    <Query query={ME_QUERY}>
         {({data, loading, error}) => {
             console.log(111, data)
             if (loading) return  <div>Loading..</div>
@@ -14,14 +14,29 @@ const Root = () => (
     </Query>
 );
 
-const GET_TRACKS_QUERY = gql`
-    {
-      tracks(search:"") {
-        id
-        title
-        url
+export const ME_QUERY = gql`
+  {
+    me {
+      id
+      username
+      email
+      likeSet {
+        track {
+          id
+        }
       }
     }
-`
+  }
+`;
+
+// const GET_TRACKS_QUERY = gql`
+//     {
+//       tracks(search:"") {
+//         id
+//         title
+//         url
+//       }
+//     }
+// `
 
 export default withRoot(Root);
