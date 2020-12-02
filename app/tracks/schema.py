@@ -83,10 +83,9 @@ class DeleteTrack(graphene.Mutation):
 
     def mutate(self, info, track_id):
         user = info.context.user
+        if user.is_anonymous:
+            raise GraphQLError('Log in.')
         track = Track.objects.get(id=track_id)
-
-        if track.posted_by != user:
-            raise GraphQLError('Not permitted to delete this track.')
 
         track.delete()
 
