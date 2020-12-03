@@ -21,6 +21,7 @@ const Header = ({ classes, currentUser }) => {
           </Typography>
         </Link>
 
+        {/* Auth User Info */}
         {currentUser && (
           <Link to={`/profile/${currentUser.id}`} className={classes.grow}>
             <FaceIcon className={classes.faceIcon} />

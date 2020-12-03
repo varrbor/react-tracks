@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import withStyles from "@material-ui/core/styles/withStyles";
+
 import SearchTracks from "../components/Track/SearchTracks";
 import TrackList from "../components/Track/TrackList";
 import CreateTrack from "../components/Track/CreateTrack";
@@ -19,9 +20,9 @@ const App = ({ classes }) => {
         {({ data, loading, error }) => {
           if (loading) return <Loading />;
           if (error) return <Error error={error} />;
-          // const tracks = searchResults.length > 0 ? searchResults : data.tracks;
+          const tracks = searchResults.length > 0 ? searchResults : data.tracks;
 
-          return <TrackList tracks={data.tracks} />;
+          return <TrackList tracks={tracks} />;
         }}
       </Query>
     </div>
@@ -30,7 +31,7 @@ const App = ({ classes }) => {
 
 export const GET_TRACKS_QUERY = gql`
   query getTracksQuery {
-    tracks(search:"") {
+    tracks {
       id
       title
       description

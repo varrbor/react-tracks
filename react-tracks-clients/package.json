@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "developmentMode": true,
   "dependencies": {
     "@material-ui/core": "3.0.1",
     "@material-ui/icons": "3.0.1",
